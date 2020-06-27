@@ -68,7 +68,10 @@ class LockerTest(unittest.TestCase):
         '''
         '''
         self.new_account.save_account()
-        print(*Credentials.account_credentials)
+        self.new_account.display_accounts()
+        self.assertEqual(Credentials.account_credentials,Credentials.display_accounts())
+        print("display")
 
+        
 if __name__ == "__main__":
     unittest.main()

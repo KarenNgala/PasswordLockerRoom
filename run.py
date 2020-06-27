@@ -26,7 +26,7 @@ def generate_password():
     random_password = Credentials.password_generate()
     return random_password
 
-def display_accounts():
+def display_account():
     '''
     '''
     return Credentials.display_accounts()
@@ -68,13 +68,13 @@ def main():
             print(f"New account: {account} \n Username: {u_name} --- Password:{passwd}")
             print ('\n')
         elif short_code == 'da':
-            print("\n Here is a list of all your accounts")
-            if display_accounts():
-                print(f"Account type \t Username \t Password \n")
-                for item in Credentials.display_accounts():
-                    print(f"{item.account} \t {item.u_name} \t {item.passwd} \n ")
+            if display_account() != []:
+                print("Here is a list of all your accounts:\n")
+                print("Account type \t Username \t Password")
+                for acc in Credentials.display_accounts():
+                    print(f" {account} \t\t {u_name} \t\t {passwd} ")
             else:
-                print("You do not have any accounts saved")
+                print("\n You do not have any accounts saved \n")
         elif short_code == "ex":
             print(f"Have a lovely day, {human}")
             break

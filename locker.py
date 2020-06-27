@@ -4,6 +4,7 @@ class Credentials:
     class that creates new account credentials
     '''
     account_credentials=[] #list of accounts
+    user = []
 
     def __init__(self, account_name, username, password = None):
         '''
@@ -17,13 +18,13 @@ class Credentials:
         '''
         method to save account object
         '''
-        self.account_credentials.append(Credentials)
+        self.account_credentials.append(self)
 
     def delete_account(self):
         '''
         method to delete an account
         '''
-        self.account_credentials.remove(Credentials)
+        self.account_credentials.remove(self)
 
     @classmethod
     def password_generate(cls):
