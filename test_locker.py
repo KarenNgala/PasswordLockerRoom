@@ -48,9 +48,12 @@ class LockerTest(unittest.TestCase):
         test method to check if an account has been deleted
         '''
         self.new_account.save_account()
+        another_account = Credentials("Twitter", "Bob", "Sagers")
+        another_account.save_account()
+        print(len(Credentials.account_credentials)) #test
         self.new_account.delete_account()
-        self.assertEqual(len(Credentials.account_credentials),0)
-        print("delete")
+        self.assertEqual(len(Credentials.account_credentials),1)
+        print(len(Credentials.account_credentials)) #test
 
     
     def test_password_autogenerate(self):
@@ -59,8 +62,13 @@ class LockerTest(unittest.TestCase):
         self.new_account.save_account()
         another_account = Credentials("Twitter", "Bob")
         another_account.save_account()
-        print(another_account.password)
-        print("pas-generate")
+        print("pass generate: " + another_account.password)
+
+    def test_dislay_accounts(self):
+        '''
+        '''
+        self.new_account.save_account()
+        print(*Credentials.account_credentials)
 
 if __name__ == "__main__":
     unittest.main()

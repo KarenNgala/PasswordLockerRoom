@@ -30,8 +30,14 @@ class Credentials:
         '''
         '''
         password_length = 8
-        possible_characters = "@abcdefghijklmnopqrstuvwxyz-1234567890!ABCDEFGHIJKLMNOPQRSTUVWXYZ&" 
+        possible_characters = "@abcdefghijklmnopqrstuvwxyz-1234567890&ABCDEFGHIJKLMNOPQRSTUVWXYZ!" 
         random_character = [random.choice(possible_characters) for i in range(password_length)]
         auto_password = "".join(random_character)
         return auto_password
+
+    @classmethod
+    def display_accounts(cls):
+        '''
+        '''
+        return cls.account_credentials
 
