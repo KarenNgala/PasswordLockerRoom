@@ -19,3 +19,8 @@ class Credentials:
         method to save account object
         '''
         self.account_credentials.append(Credentials)
+
+    def delete_account(self):
+        '''
+        '''
+        self.account_credentials.remove(Credentials)

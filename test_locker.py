@@ -13,7 +13,7 @@ class LockerTest(unittest.TestCase):
         '''
         method run after each test
         '''
-        self.new_account = []
+        Credentials.account_credentials = []
         print("teardown")
 
     def test_init(self):
@@ -37,11 +37,19 @@ class LockerTest(unittest.TestCase):
         '''
         test method to check if user can add many accounts
         '''
+        self.new_account.save_account()
         another_account = Credentials("Twitter", "Bob", "Burgers123")
         another_account.save_account()
         self.assertEqual(len(Credentials.account_credentials),2)
         print("save2")
         
+    def test_delete_account(self):
+        '''
+        '''
+        self.new_account.save_account()
+        self.new_account.delete_account()
+        self.assertEqual(len(Credentials.account_credentials),0)
+        print("delete")
 
 
 if __name__ == "__main__":
