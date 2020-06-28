@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from locker import Credentials
 
 class LockerTest(unittest.TestCase):
@@ -67,10 +68,18 @@ class LockerTest(unittest.TestCase):
     def test_dislay_accounts(self):
         '''
         '''
-        self.new_account.save_account()
-        self.new_account.display_accounts()
-        self.assertEqual(Credentials.account_credentials,Credentials.display_accounts())
+        self.assertEqual(Credentials.display_accounts(),Credentials.account_credentials)
         print("display")
+
+    def test_search_accounts(self):
+        '''
+        '''
+        self.new_account.save_account()
+        another_account = Credentials("Twitter", "Bob", "Burgers@123")
+        another_account.save_account()
+        self.assertEqual(another_account.account_name,Credentials.search_accounts("Twitter"))
+        print("search")
+
 
         
 if __name__ == "__main__":

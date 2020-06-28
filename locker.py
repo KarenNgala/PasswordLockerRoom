@@ -1,4 +1,5 @@
 import random
+import pyperclip
 class Credentials:
     '''
     class that creates new account credentials
@@ -18,13 +19,13 @@ class Credentials:
         '''
         method to save account object
         '''
-        self.account_credentials.append(self)
+        Credentials.account_credentials.append(self)
 
     def delete_account(self):
         '''
         method to delete an account
         '''
-        self.account_credentials.remove(self)
+        Credentials.account_credentials.remove(self)
 
     @classmethod
     def password_generate(cls):
@@ -41,4 +42,12 @@ class Credentials:
         '''
         '''
         return cls.account_credentials
+
+    @classmethod
+    def search_accounts(cls, search):
+        '''
+        '''
+        for acc in cls.account_credentials:
+            if acc.account_name == search:
+                return acc.account_name
 
