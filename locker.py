@@ -1,11 +1,25 @@
 import random
 import pyperclip
+
+class User:
+    '''
+    '''
+    data_user = [] 
+
+    def __init__(self, owner, key):
+        '''
+        '''
+        self.owner = owner
+        self.key = key
+
+    
+
+
 class Credentials:
     '''
     class that creates new account credentials
     '''
     account_credentials=[] #list of accounts
-    user = []
 
     def __init__(self, account_name, username, password = None):
         '''
@@ -50,4 +64,14 @@ class Credentials:
         for acc in cls.account_credentials:
             if acc.account_name == search:
                 return acc.account_name
+
+    @classmethod
+    def copy_password(cls):
+        '''
+        '''
+        #######
+        for acc in cls.account_credentials:
+            pyperclip.copy(acc.password)
+            pyperclip.paste()
+
 

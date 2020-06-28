@@ -1,6 +1,26 @@
 import unittest
 import pyperclip
 from locker import Credentials
+from locker import User
+
+class UserTest(unittest.TestCase):
+    def setUp(self):
+        '''
+        '''
+        self.new_user = User("Human", "orAmI?")
+        print("....................................")
+        print("setup-user")
+
+    def tearDown(self):
+        User.data_user = []
+        print("teardown-user")
+
+    def test_init(self):
+        '''
+        '''
+        self.assertEqual(self.new_user.owner,"Human")
+        self.assertEqual(self.new_user.key, "orAmI?")
+        print("init-user")
 
 class LockerTest(unittest.TestCase):
     def setUp(self):

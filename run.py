@@ -61,7 +61,7 @@ def main():
             account = input()
             print("Username ...")
             u_name = input()
-            print("Password ...")
+            print("...........")
             passwd = generate_password()
             save_accounts(create_account(account, u_name, passwd))
             print ('Your account has been created successfully!\n')
@@ -71,7 +71,7 @@ def main():
             if display_account() != []:
                 print("Here is a list of all your accounts:\n")
                 print("Account type \t Username \t Password")
-                for acc in Credentials.display_accounts():
+                for credentials in Credentials.account_credentials:
                     print(f" {account} \t\t {u_name} \t\t {passwd} ")
             else:
                 print("\n You do not have any accounts saved \n")
