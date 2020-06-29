@@ -118,7 +118,7 @@ class LockerTest(unittest.TestCase):
         self.new_account.save_account()
         another_account = Credentials("Twitter", "Bob", "Burgers@123")
         another_account.save_account()
-        self.assertEqual(another_account.account_name,Credentials.search_accounts("Twitter"))
+        self.assertEqual(another_account,Credentials.search_accounts("Twitter"))
         print("search")
 
 

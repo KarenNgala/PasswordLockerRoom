@@ -65,7 +65,7 @@ class Credentials:
         '''
         for acc in cls.account_credentials:
             if acc.account_name == search:
-                return acc.account_name
+                return acc
 
     @classmethod
     def copy_password(cls):
