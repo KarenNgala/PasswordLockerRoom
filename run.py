@@ -50,8 +50,14 @@ def display_account():
     return Credentials.display_accounts()
 
 
-def main():
-    print("Hello and welcome!")
+def main(): 
+    print(' _               _               ____                       ')
+    print('| |    ___   ___| | _____ _ __  |  _ \ ___   ___  _ __ ___  ')
+    print("| |   / _ \ / __| |/ / _ \ '__| | (_) / _ \ / _ \| '_ ` _ \ ")
+    print('| |__| (_) | (__|   <  __/ |    |  _ < (_) | (_) | | | | | |')
+    print('|_____\___/ \___|_|\_\___|_|    |_| \_\___/ \___/|_| |_| |_|')
+
+    print("\nHello and welcome!")
     print("\n 1. Create an account \n 2. Exit app")
     option = input()
 
@@ -90,6 +96,7 @@ def main():
                             print ('\n')
                             print(f"New account: {account} added \n Username: {u_name} --- Password:{passwd}")
                             print ('\n')
+
                         elif short_code == 'ga':
                             print("-"*10)
                             print("Account name ....(eg: facebook)")
@@ -102,6 +109,7 @@ def main():
                             print ('Your account has been created successfully!\n')
                             print(f"New account: {account} \n Username: {u_name} --- Password:{passwd}")
                             print ('\n')
+
                         elif short_code == 'da':
                             print("-"*10)
                             if display_account() != []:
@@ -110,6 +118,7 @@ def main():
                                     print(item.account_name +"\t --> "+ item.username +"\t --> "+ item.password)
                             else:
                                 print("\n You do not have any accounts saved \n")
+
                         elif short_code == 'sa':
                             print("-"*10)
                             print("\n Enter an account type to search. eg:Facebook\n")
@@ -118,9 +127,7 @@ def main():
                                 found = search_accounts(search)
                                 print("\n Here's what we've found:\n")
                                 print(found.account_name +"\t"+ found.username +"\t"+ found.password)
-                                print("*"*10)
-                            else:
-                                print("\nThere are no records with that search word\n")
+                        
                         elif short_code == "ex":
                             print("-"*10)
                             print(f"Have a lovely day, {lock_owner}")
