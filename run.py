@@ -137,10 +137,12 @@ def main():
                                 print(found.account_name +"\t"+ found.username +"\t"+ found.password)
                         
                         elif short_code == 'd':
+                            print("-"*10)
                             print("Enter the account name for the record you want to delete eg: Facebook")
                             item = input()
                             if search_accounts(item):
                                 delete_accounts(search_accounts(item))
+                                print("-"*10)
                                 print("The account has been deleted successfully")
                                 print("Here is a list of your remaining accounts:\n")
                                 for remaining in display_account():
