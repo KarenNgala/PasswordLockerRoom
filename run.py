@@ -88,7 +88,7 @@ def main():
                     print("\n You are successfully logged in!")
                     while True:
                         print("-"*10)
-                        print("Use these short codes : \n \t\t aa - Add an account using your own password \n \t\t ga - Generate a password for your new account \n \t\t da - display saved accounts \n \t\t sa - Search for an account \n \t\t D - delete an account \n \t\t ex - Exit the locker room ")
+                        print("What would you like to do today? \n Use these short codes : \n \t\t aa - Add an account using your own password \n \t\t ga - Generate a password for your new account \n \t\t da - display saved accounts \n \t\t sa - Search for an account \n \t\t D - delete an account \n \t\t ex - Exit the locker room ")
                         short_code = input().lower()
 
                         if short_code == 'aa':
@@ -136,6 +136,18 @@ def main():
                                 print("\n Here's what we've found:\n")
                                 print(found.account_name +"\t"+ found.username +"\t"+ found.password)
                         
+                        elif short_code == 'd':
+                            print("Enter the account name for the record you want to delete eg: Facebook")
+                            item = input()
+                            if search_accounts(item):
+                                delete_accounts(search_accounts(item))
+                                print("The account has been deleted successfully")
+                                print("Here is a list of your remaining accounts:\n")
+                                for remaining in display_account():
+                                    print(remaining.account_name +"\t --> "+ remaining.username +"\t --> "+ remaining.password)
+                            else:
+                                print("There is no record of the item you are trying to delete")
+
                         elif short_code == "ex":
                             print("-"*10)
                             print(f"Have a lovely day, {lock_owner}")
