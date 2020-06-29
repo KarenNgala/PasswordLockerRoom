@@ -8,7 +8,7 @@ class UserTest(unittest.TestCase):
         '''
         '''
         self.new_user = User("Human", "orAmI?")
-        print("....................................")
+        print("//////////////////////////////")
         print("setup-user")
 
     def tearDown(self):
@@ -22,12 +22,28 @@ class UserTest(unittest.TestCase):
         self.assertEqual(self.new_user.key, "orAmI?")
         print("init-user")
 
+    def test_save_user(self):
+        '''
+        '''
+        self.new_user.save_user()
+        self.assertEqual(len(User.data_user),1)
+        print("user saved")
+
+    # def test_number_of_users(self):
+    #     '''
+    #     '''
+    #     self.new_user.save_user()
+    #     another_user = User("Oliver", "tToTheTwist")
+    #     another_user.save_user()
+        
+
 class LockerTest(unittest.TestCase):
     def setUp(self):
         '''
         method run before each test
         '''
         self.new_account = Credentials("instagram","linda","myPassword")
+        print("*****************************")
         print("setup")
 
     def tearDown(self):
@@ -88,7 +104,12 @@ class LockerTest(unittest.TestCase):
     def test_dislay_accounts(self):
         '''
         '''
+        self.new_account.save_account()
+        another_account = Credentials("Twitter","Bobby", "Brown-asf")
+        another_account.save_account()
         self.assertEqual(Credentials.display_accounts(),Credentials.account_credentials)
+        for acc in Credentials.account_credentials:
+            print(acc.account_name)
         print("display")
 
     def test_search_accounts(self):

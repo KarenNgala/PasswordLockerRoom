@@ -12,9 +12,11 @@ class User:
         self.owner = owner
         self.key = key
 
-    
-
-
+    def save_user(self):
+        '''
+        '''
+        User.data_user.append(self)
+       
 class Credentials:
     '''
     class that creates new account credentials
