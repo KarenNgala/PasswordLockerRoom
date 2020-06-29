@@ -100,8 +100,8 @@ def main():
                             if display_account() != []:
                                 print("Here is a list of all your accounts:\n")
                                 print("Account type \t Username \t Password")
-                                for credentials in display_account():
-                                    print(f" {credentials.account} \t{u_name} \t{passwd} ")
+                                for item in display_account():
+                                    print(item.account_name +"\t"+ item.username +"\t"+ item.password)
                             else:
                                 print("\n You do not have any accounts saved \n")
                         elif short_code == "ex":
@@ -111,6 +111,10 @@ def main():
                             print("Invalid short code. Please take your time to read them, and try again")
                 else:
                     print("\nIncorrect password. Try again later")
+    elif option == '2':
+        print(f"Have a lovely day, {lock_owner}")
+    else:
+        print("Invalid option. Please try again later")
 
 if __name__ == "__main__":
     main()
