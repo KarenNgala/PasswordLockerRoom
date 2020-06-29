@@ -3,17 +3,20 @@ import pyperclip
 
 class User:
     '''
+    class that creates a new user
     '''
     data_user = [] 
 
     def __init__(self, owner, key):
         '''
+        method to initialize user object
         '''
         self.owner = owner
         self.key = key
 
     def save_user(self):
         '''
+        method to save user object
         '''
         User.data_user.append(self)
        
@@ -46,6 +49,7 @@ class Credentials:
     @classmethod
     def password_generate(cls):
         '''
+        class method to generate a random password
         '''
         password_length = 8
         possible_characters = "@abcdefghijklmnopqrstuvwxyz-1234567890&ABCDEFGHIJKLMNOPQRSTUVWXYZ!" 
@@ -56,12 +60,14 @@ class Credentials:
     @classmethod
     def display_accounts(cls):
         '''
+        class method to display all accounts
         '''
         return cls.account_credentials
 
     @classmethod
     def search_accounts(cls, search):
         '''
+        class method to search for an account by account name
         '''
         for acc in cls.account_credentials:
             if acc.account_name == search:
@@ -70,8 +76,8 @@ class Credentials:
     @classmethod
     def copy_password(cls):
         '''
+        method to copy passwords
         '''
-        #######
         for acc in cls.account_credentials:
             pyperclip.copy(acc.password)
             pyperclip.paste()
